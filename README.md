@@ -1,4 +1,4 @@
-# Welcome coding for everyone!
+# Welcome at coding for everyone!
 
 Everybody can code! Coding for everyone (CFC) was made to make that true.
 
