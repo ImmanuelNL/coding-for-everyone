@@ -1,3 +1,4 @@
+function startCFE() {
 var lijnI = ''
 var lijnII = ''
 var lijnIII = ''
@@ -51,6 +52,7 @@ var spel = ''
 var spelerA = ''
 var spelerB = ''
 var alleSpellen = "(1) Raad het getal\n\tRaad het getal\n(2) Steen Papier Schaar\n\tSpeel Steen Papier Schaar tegen de computer! "
+
 //Raad Het Getal
 var spelRHG = ''
 var geradenGetal = '0'
@@ -58,6 +60,7 @@ var spelgewonnenRHG = 'Goed gedaan! Het getal was inderdaad ' + spelRHG + '!'
 var ngRHG = 'Jammer dat is niet juist!'
 var aantalKeerGeraden = 0
 var checkspelgewonnenRHG = 'nee'
+
 //Steen Papier Schaar
 var computersps = ''
 var spelerAsps = ''
@@ -67,7 +70,9 @@ var vraagsps = "(1) Steen\n(2) Papier\n(3) Schaar\n\n\tKies het nummer!"
 var benamingsps = ''
 var tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " Jij"
 var opnieuwsps = true
-
+var herhaalsps = 0
+var setscoresps = 0
+var gelijkspelPsps = false
 //help
 var helpA = 0
 var helpB = 0
@@ -88,9 +93,11 @@ if(lijnI == null) { alert('Lijn 1 is geannuleerd!') }
 if(lijnI == 'spel') { commandoI = 'spel' }
 if(commandoI == 'spel') {
 spel = prompt('Je kunt kiezen uit de volgende spellen\n' + alleSpellen + '\nVul het getal in van het spel NIET de naam van het spel!', "") }
+
 if(spel == '2') {
 
 do {
+if(setscoresps === herhaalsps) { spelerAPsps = 0;computerPsps = 0;gelijkspelPsps = confirm('Wil je dat wanneer de computer hetzelfde heeft als wat jij hebt beide een punt krijgen?\n\nDruk op ANULLEER als je dat NIET wilt\n\nDruk op OK als je dat WEL wilt'); }
 computersps = Math.floor((Math.random() * 3) + 1); 
 spelerAsps = prompt(vraagsps);
 if(spel == '2') {
@@ -98,19 +105,28 @@ if(spelerAsps == '1') { benamingsps = 'steen' };
 if(spelerAsps == '2') { benamingsps = 'papier' };
 if(spelerAsps == '3') { benamingsps = 'schaar' };
 //		hetzelfde
+if(gelijkspelPsps == true) {
 if(computersps == spelerAsps) { 
 computerPsps = computerPsps + 1;
 spelerAPsps = spelerAPsps + 1;
-tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " Jij";
+if(computersps == spelerAsps) {
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " Jij";
 alert('Jullie hadden allebei ' + benamingsps + ' ,allebei + 1 punt!\n\n\t' + tussenstand);
-}; 
-}
+};
+};
+};
+if(gelijkspelPsps == false) {
+if(computersps == spelerAsps) { 
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " Jij";
+alert('Jullie hadden allebei ' + benamingsps + '\n\n\t' + tussenstand);
+};
+};
 //		Computer: steen | Speler: schaar
 if(spel == '2') {
 if(computersps == '1') {
 if(spelerAsps == '3') {
 computerPsps = computerPsps + 1;
-tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " Jij";
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " Jij";
 alert('Jammer, de computer had steen en jij had schaar.\n\nComputer + 1 punt\n\n\t' + tussenstand);
 };
 };
@@ -120,7 +136,7 @@ if(spel == '2') {
 if(computersps == '1') {
 if(spelerAsps == '2') {
 spelerAPsps = spelerAPsps + 1;
-tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " Jij";
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " Jij";
 alert('Goed zo! De computer had steen en jij had papier!\n\nJij + 1 punt\n\n\t' + tussenstand);
 };
 };
@@ -130,17 +146,17 @@ if(spel == '2') {
 if(computersps == '2') {
 if(spelerAsps == '3') {
 spelerAPsps = spelerAPsps + 1;
-tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " Jij";
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " Jij";
 alert('Goed zo! De computer had papier en jij had schaar!\n\nJij + 1 punt\n\n\t' + tussenstand);
 };
-}
+};
 }
 //		Computer: papier | Speler: steen
 if(spel == '2') {
-if(computersps == '1') {
-if(spelerAsps == '3') {
+if(computersps == '2') {
+if(spelerAsps == '1') {
 computerPsps = computerPsps + 1;
-tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " Jij";
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " Jij";
 alert('Jammer, de computer had papier en jij had steen.\n\nComputer + 1 punt\n\n\t' + tussenstand);
 };
 };
@@ -150,8 +166,9 @@ if(spel == '2') {
 if(computersps == '3') {
 if(spelerAsps == '1') {
 spelerAPsps = spelerAPsps + 1;
-tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " Jij";
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " Jij";
 alert('Goed zo! De computer had schaar en jij had steen!\n\nJij + 1 punt\n\n\t' + tussenstand);
+};
 };
 }
 //		Computer: schaar | Speler: papier
@@ -159,14 +176,15 @@ if(spel == '2') {
 if(computersps == '3') {
 if(spelerAsps == '2') {
 computerPsps = computerPsps + 1;
-tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " Jij";
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " Jij";
 alert('Jammer, de computer had schaar en jij had papier.\n\nComputer + 1 punt\n\n\t' + tussenstand);
 };
 };
 }
+herhaalsps = 1;
 opnieuwsps = confirm('Wil je opnieuw?')
 }; 
-} while (opnieuwsps == true); 
+} while (opnieuwsps == true);
 }
  
 //Raad het getal
@@ -339,4 +357,4 @@ if(commandoIII == 'tekst') { tekstIII = prompt('Voer de tekst in voor regel 3', 
 if(lijnI == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
 if(lijnII == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
 if(lijnIII == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
-		
+}
