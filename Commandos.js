@@ -74,12 +74,32 @@ var opnieuwsps = true
 var herhaalsps = 0
 var setscoresps = 0
 var gelijkspelPsps = false
+
+//spelII
+var spelII = ''
+var spelII = '0'
+var spelerAII = ''
+var spelerBII = ''
+var alleSpellen = "(1) Raad het getal\n\tRaad het getal\n(2) Steen Papier Schaar\n\tSpeel Steen Papier Schaar tegen de computer! "
+//Steen Papier Schaar
+
+var computerspsII = ''
+var spelerAspsII = ''
+var computerPspsII = 0
+var spelerAPspsII = 0
+var benamingspsII = ''
+var tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAspsII + " Jij"
+var opnieuwspsII = true
+var herhaalspsII = 0
+var setscoresps = 0
+var gelijkspelPspsII = false
+
 //help
 var helpA = 0
 var helpB = 0
 var helpC = 0
 var helpI = "(1) tekst \n\tVoer tekst in die je aan het einde kan zien (na alle 3 de commando's)\n(2) vragenlijst\n\tStel een vragenlijst op tot maximaal 3 vragen\n\t\tALLEEN MAAR BESCHIKBAAR IN LIJN 1!\n(3) cancel\n\tAnnuleert die lijn, er wordt geen commando uitgevoerd\n(4) spel\n\tSpeel verschillende spelletjes\n(5) help\n\tLaat het help menu zien"
-var helpII = "(1) tekst \n\tVoer tekst in die je aan het einde kan zien (na alle 3 de commando's)\n(2) cancel\n\tAnnuleert die lijn, er wordt geen commando uitgevoerd\n(4) help\n\tLaat het help menu zien"
+var helpII = "(1) tekst \n\tVoer tekst in die je aan het einde kan zien (na alle 3 de commando's)\n(2) cancel\n\tAnnuleert die lijn, er wordt geen commando uitgevoerd\n(4) spel\n\tSpeel verschillende spelletjes\n(5) help\n\tLaat het help menu zien"
 var helpIII = "(1) tekst \n\tVoer tekst in die je aan het einde kan zien (na alle 3 de commando's)\n(2) cancel\n\tAnnuleert die lijn, er wordt geen commando uitgevoerd\n(4) help\n\tLaat het help menu zien"
 var helponderaan = "\n\nDe COMMANDO'S zijn hoofdlettergevoelig, gebruik dus alleen maar kleine letters, (bijv. tekst)"
 
@@ -88,7 +108,7 @@ var helponderaan = "\n\nDe COMMANDO'S zijn hoofdlettergevoelig, gebruik dus alle
 lijnI = prompt('Voer code in voor lijn 1', "")
 
 //als er op annuleer wordt gedrukt
-if(lijnI == null) { alert('Lijn 1 is geannuleerd!') }
+if(lijnI == null) { alert('Lijn 1 is geannuleerd!');console.log('lijn 1 (lijnI) is geannuleerd'); }
 
 //Steen Papier Schaar
 if(lijnI == 'spel') { commandoI = 'spel' }
@@ -189,6 +209,13 @@ opnieuwsps = confirm('Wil je opnieuw?')
 }
  
 //Raad het getal
+if(lijnI == 'spel') { commandoI = 'spel' }
+if(commandoI == 'spel') {
+if(spel == '1') { spelRHG = Math.floor((Math.random() * 10) + 1); spelerA = prompt('Wat is je naam?', ""); 
+geradenGetal = prompt('Het getal zit tussen de 1 en 10, veel succes ' + spelerA + '!\n\nJe mag maar 5 keer raden', "");
+}; } 
+if(spel == '1') { spelgewonnenRHG = 'Goed gedaan! Het getal was inderdaad ' + spelRHG + '!'
+}
 if(lijnI == 'spel') { commandoI == 'spel' }
 if(commandoI == 'spel') {
 spel = prompt('Je kunt kiezen uit de volgende spellen\n' + alleSpellen + '\nVul het getal in van het spel NIET de naam van het spel!', "") }
@@ -261,6 +288,7 @@ if(aantalKeerGeraden == 5) { alert('Je hebt verloren, het getal was ' + spelRHG)
 }; 
 };
 }
+
 //help
 if(lijnI == 'help') { commandoI = 'help' }
 if(commandoI == 'help') { helpA = prompt('WELKOM IN HET HELP MENU\nVoer de lijn in waar je hulp voor nodig hebt:\n1, 2 of 3', "")  }
@@ -269,7 +297,7 @@ if(commandoI == 'help') { if(helpA == 2) { alert("Lijn 2 kan je de volgende comm
 if(commandoI == 'help') { if(helpA == 3) { alert("Lijn 3 kan je de volgende commando's geven:\n" + helpIII + helponderaan) } }
 
 //tekst commando
-if(lijnI == 'cancel') { commandoI = 'cancel' }
+if(lijnI == 'cancel') { commandoI = 'cancel';console.log('lijn 1 (lijnI) is geannuleerd'); }
 if(commandoI == 'cancel') { alert('Lijn 1 is geannuleerd!') }
 if(lijnI == 'tekst') { commandoI = 'tekst' }
 if(commandoI == 'tekst') { tekstI = prompt('Voer de tekst in voor regel 1 (De titel)', "") }
@@ -313,8 +341,194 @@ if(commandoI == 'vragenlijst') { vraagWI = prompt('Voer de eerste vraag in', "")
 //lijn 2
 lijnII = prompt('Voer code in voor lijn 2', "")
 
+//spel
+if(lijnII == 'spel') { commandoII = 'spelII' }
+if(commandoII == 'spelII') {
+spelII = prompt('Je kunt kiezen uit de volgende spellen\n' + alleSpellen + '\nVul het getal in van het spelII NIET de naam van het spelII!', "") }
+// Steen Papier Schaar
+if(spelII == '2') {
+
+do {
+if(setscoresps === herhaalspsII) { spelerAPspsII = 0;computerPspsII = 0;gelijkspelPspsII = confirm('Wil je dat wanneer de computer hetzelfde heeft als wat jij hebt beide een punt krijgen?\n\nDruk op ANULLEER als je dat NIET wilt\n\nDruk op OK als je dat WEL wilt'); }
+computerspsII = Math.floor((Math.random() * 3) + 1); 
+spelerAspsII = prompt(vraagsps);
+if(spelII == '2') {
+if(spelerAspsII == '1') { benamingspsII = 'steen' };
+if(spelerAspsII == '2') { benamingspsII = 'papier' };
+if(spelerAspsII == '3') { benamingspsII = 'schaar' };
+//		hetzelfde
+if(gelijkspelPspsII == true) {
+if(computerspsII == spelerAspsII) { 
+computerPspsII = computerPspsII + 1;
+spelerAPspsII = spelerAPspsII + 1;
+if(computerspsII == spelerAspsII) {
+tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAPspsII + " Jij";
+alert('Jullie hadden allebei ' + benamingspsII + ' ,allebei + 1 punt!\n\n\t' + tussenstandII);
+};
+};
+};
+if(gelijkspelPspsII == false) {
+if(computerspsII == spelerAspsII) { 
+tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAPspsII + " Jij";
+alert('Jullie hadden allebei ' + benamingspsII + '\n\n\t' + tussenstandII);
+};
+};
+//		Computer: steen | Speler: schaar
+if(spelII == '2') {
+if(computerspsII == '1') {
+if(spelerAspsII == '3') {
+computerPspsII = computerPspsII + 1;
+tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAPspsII + " Jij";
+alert('Jammer, de computer had steen en jij had schaar.\n\nComputer + 1 punt\n\n\t' + tussenstandII);
+};
+};
+}
+//		Computer: steen | Speler: papier
+if(spelII == '2') {
+if(computerspsII == '1') {
+if(spelerAspsII == '2') {
+spelerAPspsII = spelerAPspsII + 1;
+tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAPspsII + " Jij";
+alert('Goed zo! De computer had steen en jij had papier!\n\nJij + 1 punt\n\n\t' + tussenstandII);
+};
+};
+}
+//		Computer: papier | Speler: schaar
+if(spelII == '2') {
+if(computerspsII == '2') {
+if(spelerAspsII == '3') {
+spelerAPspsII = spelerAPspsII + 1;
+tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAPspsII + " Jij";
+alert('Goed zo! De computer had papier en jij had schaar!\n\nJij + 1 punt\n\n\t' + tussenstandII);
+};
+};
+}
+//		Computer: papier | Speler: steen
+if(spelII == '2') {
+if(computerspsII == '2') {
+if(spelerAspsII == '1') {
+computerPspsII = computerPspsII + 1;
+tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAPspsII + " Jij";
+alert('Jammer, de computer had papier en jij had steen.\n\nComputer + 1 punt\n\n\t' + tussenstandII);
+};
+};
+}
+//		Computer: schaar | Speler: steen
+if(spelII == '2') {
+if(computerspsII == '3') {
+if(spelerAspsII == '1') {
+spelerAPspsII = spelerAPspsII + 1;
+tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAPspsII + " Jij";
+alert('Goed zo! De computer had schaar en jij had steen!\n\nJij + 1 punt\n\n\t' + tussenstandII);
+};
+};
+}
+//		Computer: schaar | Speler: papier
+if(spelII == '2') {
+if(computerspsII == '3') {
+if(spelerAspsII == '2') {
+computerPspsII = computerPspsII + 1;
+tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAPspsII + " Jij";
+alert('Jammer, de computer had schaar en jij had papier.\n\nComputer + 1 punt\n\n\t' + tussenstandII);
+};
+};
+}
+herhaalspsII = 1;
+opnieuwspsII = confirm('Wil je opnieuw?')
+}; 
+} while (opnieuwspsII == true);
+}
+// Raad Het Getal
+
+var spelRHGII = ''
+var geradenGetalII = '0'
+var spelgewonnenRHG = 'Goed gedaan! Het getal was inderdaad ' + spelRHGII + '!'
+var ngRHGII = 'Jammer dat is niet juist!'
+var aantalKeerGeradenII = 0
+var checkspelgewonnenRHGII = 'nee'
+
+if(lijnII == 'spelII') { commandoII = 'spelII' }
+if(commandoII == 'spelII') {
+if(spelII == '1') { spelRHGII = Math.floor((Math.random() * 10) + 1); spelerA = prompt('Wat is je naam?', ""); 
+geradenGetalII = prompt('Het getal zit tussen de 1 en 10, veel succes ' + spelerA + '!\n\nJe mag maar 5 keer raden', "");
+}
+if(spelII == '1') { spelgewonnenRHG = 'Goed gedaan! Het getal was inderdaad ' + spelRHGII + '!'
+}
+if(lijnII == 'spelII') { commandoII == 'spelII' }
+if(commandoII == 'spelII') {
+spelII = prompt('Je kunt kiezen uit de volgende spellen\n' + alleSpellen + '\nVul het getal in van het spelII NIET de naam van het spelII!', "") }
+if(spelII == '1') { spelRHGII = Math.floor((Math.random() * 10) + 1); spelerA = prompt('Wat is je naam?', ""); 
+geradenGetalII = prompt('Het getal zit tussen de 1 en 10, veel succes ' + spelerA + '!\n\nJe mag maar 5 keer raden', "");
+}
+if(spelII == '1') { spelgewonnenRHG = 'Goed gedaan! Het getal was inderdaad ' + spelRHGII + '!'
+}
+
+if(spelII == '1') {
+
+if(checkspelgewonnenRHGII == 'nee') { if(geradenGetalII == spelRHGII) { if(aantalKeerGeradenII != 5) { aantalKeerGeradenII = aantalKeerGeradenII + 1; alert(spelgewonnenRHG); checkspelgewonnenRHGII = 'ja' }; 
+};
+if(geradenGetalII != spelRHGII) { 
+alert(ngRHGII); if(aantalKeerGeradenII != 5) { 
+aantalKeerGeradenII = aantalKeerGeradenII + 1 }; 
+if(aantalKeerGeradenII == 5) { alert('Je hebt verloren, het getal was ' + spelRHGII) }; 
+}; 
+}; 
+}
+if(spelII == '1') {
+if(checkspelgewonnenRHGII == 'nee') {
+geradenGetalII = prompt('Het getal zit tussen de 1 en 10', "")
+if(geradenGetalII == spelRHGII) {
+if(aantalKeerGeradenII != 5) { aantalKeerGeradenII = aantalKeerGeradenII + 1; alert(spelgewonnenRHG); checkspelgewonnenRHGII = 'ja' }; 
+};
+if(geradenGetalII != spelRHGII) { 
+alert(ngRHGII); if(aantalKeerGeradenII != 5) { 
+aantalKeerGeradenII = aantalKeerGeradenII + 1 }; 
+if(aantalKeerGeradenII == 5) { alert('Je hebt verloren, het getal was ' + spelRHGII);checkspelgewonnenRHGII = 'ja'; }; 
+}; 
+};
+}
+if(spelII == '1') {
+if(checkspelgewonnenRHGII == 'nee') {
+geradenGetalII = prompt('Het getal zit tussen de 1 en 10', "")
+if(geradenGetalII == spelRHGII) {
+if(aantalKeerGeradenII != 5) { aantalKeerGeradenII = aantalKeerGeradenII + 1; alert(spelgewonnenRHG); checkspelgewonnenRHGII = 'ja' }; 
+};
+if(geradenGetalII != spelRHGII) { 
+alert(ngRHGII); if(aantalKeerGeradenII != 5) { 
+aantalKeerGeradenII = aantalKeerGeradenII + 1 }; 
+if(aantalKeerGeradenII == 5) { alert('Je hebt verloren, het getal was ' + spelRHGII);checkspelgewonnenRHGII = 'ja'; }; 
+}; 
+};
+}
+if(spelII == '1') {
+if(checkspelgewonnenRHGII == 'nee') {
+geradenGetalII = prompt('Het getal zit tussen de 1 en 10', "")
+if(geradenGetalII == spelRHGII) {
+if(aantalKeerGeradenII != 5) { aantalKeerGeradenII = aantalKeerGeradenII + 1; alert(spelgewonnenRHG); checkspelgewonnenRHGII = 'ja' }; 
+};
+if(geradenGetalII != spelRHGII) { 
+alert(ngRHGII); if(aantalKeerGeradenII != 5) { 
+aantalKeerGeradenII = aantalKeerGeradenII + 1 }; 
+if(aantalKeerGeradenII == 5) { alert('Je hebt verloren, het getal was ' + spelRHGII);checkspelgewonnenRHGII = 'ja'; }; 
+}; 
+};
+}
+if(spelII == '1') {
+if(checkspelgewonnenRHGII == 'nee') {
+geradenGetalII = prompt('Het getal zit tussen de 1 en 10', "")
+if(geradenGetalII == spelRHGII) {
+if(aantalKeerGeradenII != 5) { aantalKeerGeradenII = aantalKeerGeradenII + 1; alert(spelgewonnenRHG); checkspelgewonnenRHGII = 'ja' }; 
+};
+if(geradenGetalII != spelRHGII) { 
+alert(ngRHGII); if(aantalKeerGeradenII != 5) { 
+aantalKeerGeradenII = aantalKeerGeradenII + 1 }; 
+if(aantalKeerGeradenII == 5) { alert('Je hebt verloren, het getal was ' + spelRHGII);checkspelgewonnenRHGII = 'ja'; }; 
+}; 
+};
+}
+
 //als er op annuleer wordt gedrukt
-if(lijnII == null) { alert('Lijn 2 is geannuleerd!') }
+if(lijnII == null) { alert('Lijn 2 is geannuleerd!');console.log('lijn 2 (lijnII) is geannuleerd'); }
 
 //help
 if(lijnII == 'help') { commandoII = 'help' }
@@ -325,7 +539,7 @@ if(commandoII == 'help') { if(helpB == 3) { alert("Lijn 3 kan je de volgende com
 
 //cancel
 if(lijnII == 'cancel') { commandoII = 'cancel' }
-if(commandoII == 'cancel') { alert('Lijn 2 is geannuleerd!') }
+if(commandoII == 'cancel') { alert('Lijn 2 is geannuleerd!');console.log('lijn 2 (lijnII) is geannuleerd'); }
 
 //tekst commando
 if(lijnII == 'tekst') { commandoII = 'tekst'; }
@@ -337,7 +551,7 @@ if(commandoII == 'tekst') { tekstII = prompt('Voer de tekst in voor regel 2', ""
 lijnIII = prompt('Voer code in voor lijn 3', "")
 
 //als er op annuleer wordt gedrukt
-if(lijnIII == null) { alert('Lijn 3 is geannuleerd!') }
+if(lijnIII == null) { alert('Lijn 3 is geannuleerd!');console.log('lijn 3 (lijnIII) is geannuleerd'); }
 
 //help
 if(lijnIII == 'help') { commandoI = 'help' }
@@ -348,7 +562,7 @@ if(commandoIII == 'help') { if(helpC == 3) { alert("Lijn 3 kan je de volgende co
 
 //cancel
 if(lijnIII == 'cancel') { commandoIII = 'cancel' }
-if(commandoIII == 'cancel') { alert('Lijn 3 is geannuleerd!') }
+if(commandoIII == 'cancel') { alert('Lijn 3 is geannuleerd!');console.log('lijn 3 (lijnIII) is geannuleerd'); }
 
 //tekst commando
 if(lijnIII == 'tekst') { commandoIII = 'tekst' }
@@ -358,4 +572,5 @@ if(commandoIII == 'tekst') { tekstIII = prompt('Voer de tekst in voor regel 3', 
 if(lijnI == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
 if(lijnII == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
 if(lijnIII == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
+};
 }
