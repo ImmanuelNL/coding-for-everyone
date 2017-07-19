@@ -1,5 +1,17 @@
 function startCFE() {
-// language Dutch
+var taal = prompt('Kies een taal:\n1) Nederlands\n2) COMING SOON\n\n\n')
+if (taal == 1) { // TAAL NL
+taal = Nederlands;
+} elseif(taal = '1 Nederlands') { // TAAL NL
+taal = Nederlands;
+}
+
+if (taal == 2) { // ENGLISH
+alert('English is coming soon!');
+taal = 'Engels'
+}
+
+if (taal == 'Nederlands') { // TAAL NL BEGIN
 var lijnI = ''
 var lijnII = ''
 var lijnIII = ''
@@ -573,4 +585,6 @@ if(lijnI == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
 if(lijnII == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
 if(lijnIII == 'tekst') { alert(tekstI + '\n' + tekstII + '\n' + tekstIII) }
 };
+}
+// TAAL NL EINDE
 }
