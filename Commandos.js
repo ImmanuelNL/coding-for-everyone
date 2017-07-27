@@ -8,10 +8,303 @@ taal = Nederlands;
 
 if (taal == 2) { // ENGLISH
 alert('English is coming soon!');
-taal = 'Engels'
+taal = 'Engels';
+}
+if (taal == 'Engels') { // ENGLISH
+alert('Welcome!');
+var lijnI = ''
+var lijnII = ''
+var lijnIII = ''
+
+
+var commandoI = ''
+var commandoII = ''
+var commandoIII = ''
+
+//commando's
+
+//tekst
+var tekstI = ''
+var tekstII = ''
+var tekstIII = ''
+
+
+var vragenlijstI = ''
+
+//1
+
+var checkI = ''
+var checkII = ''
+var checkIII = ''
+
+var stelI = ''
+var stelII = ''
+var stelIII = ''
+
+var vraagQWI = ''
+var vraagQWII = ''
+var vraagQWIII = ''
+
+var antwoordI = ''
+var antwoordII = ''
+var antwoordIII = ''
+
+var berichtnavragen = ''
+var bedankbericht = 'Thanks for answering these questions!'
+
+var vraagWI = ''
+var vraagWII = ''
+var vraagWIII = ''
+
+var vraagGesteldI = ''
+var vraagGesteldII = ''
+var vraagGesteldIII = ''
+
+//spel
+var spel = ''
+var spelerA = ''
+var spelerB = ''
+var alleSpellen = "(1) Guess the number\n\tGuess the number\n(2) Rock paper scissors\n\tPlay Rock paper scissors with a computer!\n\nChoose the number of the game!";
+
+
+// Raad Het Getal
+var spelRHG = ''
+var geradenGetal = '0'
+var spelgewonnenRHG = 'Well done! The number was indeed ' + spelRHG + '!'
+var ngRHG = 'Too bad that is not correct!'
+var aantalKeerGeraden = 0
+var checkspelgewonnenRHG = 'nee'
+
+
+//Steen Papier Schaar
+var computersps = ''
+var spelerAsps = ''
+var computerPsps = 0
+var spelerAPsps = 0
+var vraagsps = "(1) Rock\n(2) Paper\n(3) Scissors\n\n\tDial the number!"
+var benamingsps = ''
+var tussenstand = "Computer " + computerPsps + ' - ' + spelerAsps + " You"
+var opnieuwsps = true
+var herhaalsps = 0
+var setscoresps = 0
+var gelijkspelPsps = false
+
+//spelII
+var spelII = ''
+var spelII = '0'
+var spelerAII = ''
+var spelerBII = ''
+var alleSpellen = "(1) Guess the number\n\tGuess the number\n(2) Rock Paper Scissors\n\tPlay Rock Paper Scissors against the computer! "
+//Steen Papier Schaar
+
+var computerspsII = ''
+var spelerAspsII = ''
+var computerPspsII = 0
+var spelerAPspsII = 0
+var benamingspsII = ''
+var tussenstandII = "Computer " + computerPspsII + ' - ' + spelerAspsII + " You"
+var opnieuwspsII = true
+var herhaalspsII = 0
+var setscoresps = 0
+var gelijkspelPspsII = false
+
+//help
+var helpA = 0
+var helpB = 0
+var helpC = 0
+var helpI = "Not yet available";
+var helpII = "Not yet available";
+var helpIII = "Not yet available";
+var helponderaan = "\n\nThe commands are case sensitive, so use only lowercase letters, (e.g. text)"
+
+//
+//lijn 1
+lijnI = prompt('Enter code for line 1', "")
+
+//als er op annuleer wordt gedrukt
+if(lijnI == null) { alert('Line 1 is cancelled!');console.log('line 1 (lijnI) is cancelled'); }
+
+//Steen Papier Schaar
+if(lijnI == 'spel') { commandoI = 'spel' }
+if(commandoI == 'spel') {
+spel = prompt('You can choose from the following games\n' + alleSpellen + '\nEnter the number of the game NOT the name of the game!', "") }
+
+if(spel == '2') {
+
+do {
+if(setscoresps === herhaalsps) { spelerAPsps = 0;computerPsps = 0;gelijkspelPsps = confirm("Would you like that when the computer has the same as what you've both a point get?\n\nPress CANCEL if you don't want to\n\nPress OK if you want to"); }
+computersps = Math.floor((Math.random() * 3) + 1); 
+spelerAsps = prompt(vraagsps);
+if(spel == '2') {
+if(spelerAsps == '1') { benamingsps = 'rock' };
+if(spelerAsps == '2') { benamingsps = 'paper' };
+if(spelerAsps == '3') { benamingsps = 'scissors' };
+//		hetzelfde
+if(gelijkspelPsps == true) {
+if(computersps == spelerAsps) { 
+computerPsps = computerPsps + 1;
+spelerAPsps = spelerAPsps + 1;
+if(computersps == spelerAsps) {
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " You";
+alert('Both of you had ' + benamingsps + ' ,both + 1 point!\n\n\t' + tussenstand);
+};
+};
+};
+if(gelijkspelPsps == false) {
+if(computersps == spelerAsps) { 
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " You";
+alert('Both of you had ' + benamingsps + '\n\n\t' + tussenstand);
+};
+};
+//		Computer: rock | Speler: scissors
+if(spel == '2') {
+if(computersps == '1') {
+if(spelerAsps == '3') {
+computerPsps = computerPsps + 1;
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " You";
+alert('Too bad, the computer had rock and you had scissors.\n\nComputer + 1 point\n\n\t' + tussenstand);
+};
+};
+}
+//		Computer: rock | Speler: paper
+if(spel == '2') {
+if(computersps == '1') {
+if(spelerAsps == '2') {
+spelerAPsps = spelerAPsps + 1;
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " You";
+alert('Well done! The computer had rock and you had paper!\n\nYou + 1 point\n\n\t' + tussenstand);
+};
+};
+}
+//		Computer: paper | Speler: scissors
+if(spel == '2') {
+if(computersps == '2') {
+if(spelerAsps == '3') {
+spelerAPsps = spelerAPsps + 1;
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " You";
+alert('Well done! The computer had paper and you had scissors!\n\nYou + 1 point\n\n\t' + tussenstand);
+};
+};
+}
+//		Computer: paper | Speler: rock
+if(spel == '2') {
+if(computersps == '2') {
+if(spelerAsps == '1') {
+computerPsps = computerPsps + 1;
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " You";
+alert('Too bad, the computer had paper and you had rock.\n\nComputer + 1 point\n\n\t' + tussenstand);
+};
+};
+}
+//		Computer: scissors | Speler: rock
+if(spel == '2') {
+if(computersps == '3') {
+if(spelerAsps == '1') {
+spelerAPsps = spelerAPsps + 1;
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " You";
+alert('Well done! The computer had scissors and you had rock!\n\nYou + 1 point\n\n\t' + tussenstand);
+};
+};
+}
+//		Computer: scissors | Speler: paper
+if(spel == '2') {
+if(computersps == '3') {
+if(spelerAsps == '2') {
+computerPsps = computerPsps + 1;
+tussenstand = "Computer " + computerPsps + ' - ' + spelerAPsps + " You";
+alert('Too bad, the computer had scissors and you had paper.\n\nComputer + 1 point\n\n\t' + tussenstand);
+};
+};
+}
+herhaalsps = 1;
+opnieuwsps = confirm('Would you like to play again?')
+}; 
+} while (opnieuwsps == true);
+}
+ //Raad het getal
+if(lijnI == 'spel') { commandoI = 'spel' }
+if(commandoI == 'spel') {
+if(spel == '1') { spelRHG = Math.floor((Math.random() * 10) + 1); spelerA = prompt('What is your name?', ""); 
+geradenGetal = prompt('The number is between 1 and 10, good luck ' + spelerA + '!\n\nYou can only guess 5 times', "");
+}; } 
+if(spel == '1') { spelgewonnenRHG = 'Well done! The number was indeed ' + spelRHG + '!'
+}
+if(spel == '1') { spelRHG = Math.floor((Math.random() * 10) + 1); spelerA = prompt('What is your name?', ""); 
+geradenGetal = prompt('The number is between 1 and 10, good luck ' + spelerA + '!\n\nYou can only guess 5 times', "");
+}
+if(spel == '1') { spelgewonnenRHG = 'Well done! The number was indeed ' + spelRHG + '!'
 }
 
+if(spel == '1') {
+
+if(checkspelgewonnenRHG == 'nee') { if(geradenGetal == spelRHG) { if(aantalKeerGeraden != 5) { aantalKeerGeraden = aantalKeerGeraden + 1; alert(spelgewonnenRHG); checkspelgewonnenRHG = 'ja' }; 
+};
+if(geradenGetal != spelRHG) { 
+alert(ngRHG); if(aantalKeerGeraden != 5) { 
+aantalKeerGeraden = aantalKeerGeraden + 1 }; 
+if(aantalKeerGeraden == 5) { alert('You have lost, the number was ' + spelRHG) }; 
+}; 
+}; 
+}
+if(spel == '1') {
+if(checkspelgewonnenRHG == 'nee') {
+geradenGetal = prompt('The number is between 1 and 10', "")
+if(geradenGetal == spelRHG) {
+if(aantalKeerGeraden != 5) { aantalKeerGeraden = aantalKeerGeraden + 1; alert(spelgewonnenRHG); checkspelgewonnenRHG = 'ja' }; 
+};
+if(geradenGetal != spelRHG) { 
+alert(ngRHG); if(aantalKeerGeraden != 5) { 
+aantalKeerGeraden = aantalKeerGeraden + 1 }; 
+if(aantalKeerGeraden == 5) { alert('You have lost, the number was ' + spelRHG);checkspelgewonnenRHG = 'ja'; }; 
+}; 
+};
+}
+if(spel == '1') {
+if(checkspelgewonnenRHG == 'nee') {
+geradenGetal = prompt('The number is between 1 and 10', "")
+if(geradenGetal == spelRHG) {
+if(aantalKeerGeraden != 5) { aantalKeerGeraden = aantalKeerGeraden + 1; alert(spelgewonnenRHG); checkspelgewonnenRHG = 'ja' }; 
+};
+if(geradenGetal != spelRHG) { 
+alert(ngRHG); if(aantalKeerGeraden != 5) { 
+aantalKeerGeraden = aantalKeerGeraden + 1 }; 
+if(aantalKeerGeraden == 5) { alert('You have lost, the number was ' + spelRHG);checkspelgewonnenRHG = 'ja'; }; 
+}; 
+};
+}
+if(spel == '1') {
+if(checkspelgewonnenRHG == 'nee') {
+geradenGetal = prompt('The number is between 1 and 10', "")
+if(geradenGetal == spelRHG) {
+if(aantalKeerGeraden != 5) { aantalKeerGeraden = aantalKeerGeraden + 1; alert(spelgewonnenRHG); checkspelgewonnenRHG = 'ja' }; 
+};
+if(geradenGetal != spelRHG) { 
+alert(ngRHG); if(aantalKeerGeraden != 5) { 
+aantalKeerGeraden = aantalKeerGeraden + 1 }; 
+if(aantalKeerGeraden == 5) { alert('You have lost, the number was ' + spelRHG);checkspelgewonnenRHG = 'ja'; }; 
+}; 
+};
+}
+if(spel == '1') {
+if(checkspelgewonnenRHG == 'nee') {
+geradenGetal = prompt('The number is between 1 and 10', "")
+if(geradenGetal == spelRHG) {
+if(aantalKeerGeraden != 5) { aantalKeerGeraden = aantalKeerGeraden + 1; alert(spelgewonnenRHG); checkspelgewonnenRHG = 'ja' }; 
+};
+if(geradenGetal != spelRHG) { 
+alert(ngRHG); if(aantalKeerGeraden != 5) { 
+aantalKeerGeraden = aantalKeerGeraden + 1 }; 
+if(aantalKeerGeraden == 5) { alert('You have lost, the number was ' + spelRHG);checkspelgewonnenRHG = 'ja'; }; 
+}; 
+};
+}
+
+}
+
+
+
 if (taal == 'Nederlands') { // TAAL NL BEGIN
+alert('Welkom!');
 var lijnI = ''
 var lijnII = ''
 var lijnIII = ''
@@ -64,7 +357,7 @@ var vraagGesteldIII = ''
 var spel = ''
 var spelerA = ''
 var spelerB = ''
-var alleSpellen = "(1) Raad het getal\n\tRaad het getal\n(2) Steen Papier Schaar\n\tSpeel Steen Papier Schaar tegen de computer! "
+var alleSpellen = "(1) Raad het getal\n\tRaad het getal\n(2) Steen Papier Schaar\n\tSpeel Steen Papier Schaar tegen de computer!\n\nKies het getal!"
 
 //Raad Het Getal
 var spelRHG = ''
@@ -228,9 +521,6 @@ geradenGetal = prompt('Het getal zit tussen de 1 en 10, veel succes ' + spelerA 
 }; } 
 if(spel == '1') { spelgewonnenRHG = 'Goed gedaan! Het getal was inderdaad ' + spelRHG + '!'
 }
-if(lijnI == 'spel') { commandoI == 'spel' }
-if(commandoI == 'spel') {
-spel = prompt('Je kunt kiezen uit de volgende spellen\n' + alleSpellen + '\nVul het getal in van het spel NIET de naam van het spel!', "") }
 if(spel == '1') { spelRHG = Math.floor((Math.random() * 10) + 1); spelerA = prompt('Wat is je naam?', ""); 
 geradenGetal = prompt('Het getal zit tussen de 1 en 10, veel succes ' + spelerA + '!\n\nJe mag maar 5 keer raden', "");
 }
