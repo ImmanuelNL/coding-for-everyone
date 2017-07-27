@@ -2,7 +2,8 @@ function startCFE() {
 var taal = prompt('Kies een taal:\n1) Nederlands\n2) COMING SOON\n\n\n')
 if (taal == 1) { // TAAL NL
 taal = Nederlands;
-} elseif(taal = '1 Nederlands') { // TAAL NL
+} 
+if(taal = '1 Nederlands')  { // TAAL NL
 taal = Nederlands;
 }
 
